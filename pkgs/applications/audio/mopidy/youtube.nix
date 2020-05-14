@@ -1,17 +1,17 @@
-{ stdenv, fetchFromGitHub, pythonPackages, mopidy }:
+{ stdenv, fetchFromGitHub, python3Packages, mopidy }:
 
-pythonPackages.buildPythonApplication rec {
+python3Packages.buildPythonApplication rec {
   pname = "mopidy-youtube";
-  version = "2.0.2";
+  version = "3.0";
 
   src = fetchFromGitHub {
     owner = "mopidy";
     repo = "mopidy-youtube";
-    rev = "v${version}";
-    sha256 = "06r3ikyg2ch5n7fbn3sgj04hk6icpfpk1r856qch41995k3bbfg7";
+    rev = "3d759258f27ccae434605fb86b3cb5e92df6e9e7";
+    sha256 = "0y3ab9s908r92pjv6dhrlcigw2a7j62brp97b7ns83649zmwfjs2";
   };
 
-  propagatedBuildInputs = with pythonPackages; [ mopidy pafy ];
+  propagatedBuildInputs = with python3Packages; [ mopidy pafy requests pykka beautifulsoup4 cachetools ];
 
   doCheck = false;
 
@@ -19,6 +19,5 @@ pythonPackages.buildPythonApplication rec {
     description = "Mopidy extension for playing music from YouTube";
     license = licenses.asl20;
     maintainers = [ maintainers.spwhitt ];
-    broken = true;
   };
 }
