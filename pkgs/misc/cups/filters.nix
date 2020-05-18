@@ -24,9 +24,9 @@ in stdenv.mkDerivation rec {
   ];
 
   configureFlags = [
-    # TODO(Profpatsch): mupdf support
-    "--with-pdftops=pdftops"
+    "--with-pdftops=mupdf"
     "--with-pdftops-path=${poppler_utils}/bin/pdftops"
+    "--with-mutool-path=${mupdf}/bin/mutool"
     "--with-gs-path=${ghostscript}/bin/gs"
     "--with-pdftocairo-path=${poppler_utils}/bin/pdftocairo"
     "--with-ippfind-path=${cups}/bin/ippfind"
