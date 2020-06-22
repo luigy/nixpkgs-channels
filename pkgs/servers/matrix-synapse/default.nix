@@ -23,11 +23,11 @@ let
 
 in buildPythonApplication rec {
   pname = "matrix-synapse";
-  version = "1.13.0";
+  version = "1.15.1";
 
   src = fetchPypi {
     inherit pname version;
-    sha256 = "10s34h1qh9k88bxv0l0whvy7kirmx9kwgdxrz7sv3rv42cyr1989";
+    sha256 = "1hfyqp5bzsqp002synxp9jcm9fwzw9p0gcklmycmv616x3flylkf";
   };
 
   patches = [
@@ -72,6 +72,8 @@ in buildPythonApplication rec {
     twisted
     unpaddedbase64
     typing-extensions
+    authlib
+    pyjwt
   ] ++ lib.optional enableSystemd systemd;
 
   checkInputs = [ mock parameterized openssl ];

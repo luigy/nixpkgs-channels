@@ -8878,6 +8878,11 @@ in
   rust-cbindgen = callPackage ../development/tools/rust/cbindgen {
     inherit (darwin.apple_sdk.frameworks) Security;
   };
+
+  rust-cbindgen_0_14_1 = callPackage ../development/tools/rust/cbindgen/0_14_1.nix {
+    inherit (darwin.apple_sdk.frameworks) Security;
+  };
+
   rustup = callPackage ../development/tools/rust/rustup {
     inherit (darwin.apple_sdk.frameworks) CoreServices Security;
   };
@@ -9513,6 +9518,7 @@ in
   spidermonkey = spidermonkey_38;
 
   ssm-agent = callPackage ../applications/networking/cluster/ssm-agent { };
+  ssm-session-manager-plugin = callPackage ../applications/networking/cluster/ssm-session-manager-plugin { };
 
   supercollider = libsForQt5.callPackage ../development/interpreters/supercollider {
     fftw = fftwSinglePrec;
@@ -13910,7 +13916,7 @@ in
       knotifyconfig kpackage kparts kpeople kplotting kpty kross krunner
       kservice ktexteditor ktextwidgets kunitconversion kwallet kwayland
       kwidgetsaddons kwindowsystem kxmlgui kxmlrpcclient modemmanager-qt
-      networkmanager-qt plasma-framework prison solid sonnet syntax-highlighting
+      networkmanager-qt plasma-framework prison qqc2-desktop-style solid sonnet syntax-highlighting
       syndication threadweaver kirigami2 kholidays kpurpose kcontacts;
 
     ### KDE PLASMA 5
@@ -19377,6 +19383,8 @@ in
 
   git-review = callPackage ../applications/version-management/git-review { };
 
+  github-cli = gitAndTools.gh;
+
   gitolite = callPackage ../applications/version-management/gitolite { };
 
   inherit (gnome3) gitg;
@@ -19509,10 +19517,6 @@ in
 
   google-play-music-desktop-player = callPackage ../applications/audio/google-play-music-desktop-player {
     inherit (gnome2) GConf;
-  };
-
-  google_talk_plugin = callPackage ../applications/networking/browsers/mozilla-plugins/google-talk-plugin {
-    libpng = libpng12;
   };
 
   gosmore = callPackage ../applications/misc/gosmore { };
